@@ -29,11 +29,11 @@ client.on('message', msg => {
                 channel.join()
                 .then(connection => { // Connection is an instance of VoiceConnection
                   message.reply('I have successfully connected to the channel!');
+                  const fs = require('fs');
+                  const stream = fs.createReadStream('./Oof.mp3');
+                  connection.playStream(stream);
                 })
                 .catch(console.log);
-                const fs = require('fs');
-                const stream = fs.createReadStream('./Oof.mp3');
-                connection.playStream(stream);
           }
     }
 });
