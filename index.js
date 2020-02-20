@@ -7,7 +7,8 @@ client.on('ready', () => {
 });
 
 client.on('message', msg => {
-    if (!msg.content.startsWith(process.env.PREFIX) || !msg.guild)
+    if(!msg.guild) return;
+    if (msg.content.startsWith(process.env.PREFIX))
     {
     const command = msg.content.split(' ')[0].substr(process.env.PREFIX.length);
     const args = msg.content.split(' ').slice(1).join(' ');
