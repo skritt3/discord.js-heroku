@@ -16,11 +16,11 @@ client.on('message', msg => {
     else if (command === 'invite') return msg.channel.send(process.env.INVITE);
     } else {
     const ms = msg.content;
-    if (ms === 'זדיין') 
+    if (ms.startsWith('זדיין')) 
     {
-    const member = message.guild.member(msg.author);
+    const member = msg.guild.member(msg.author);
     if(member)
-    member.kick('מת').then(() => { message.reply(`כרגע מת ${msg.author.tag}`); }).catch(err => { message.reply('לצערי אני כבוט ציוני אינני יכול לסלק ילד מת זה'); console.error(err); });
+    member.kick('מת').then(() => { msg.reply(`כרגע מת ${msg.author.tag}`); }).catch(err => { msg.reply('לצערי אני כבוט ציוני אינני יכול לסלק ילד מת זה'); console.error(err); });
     }
     }
 });
