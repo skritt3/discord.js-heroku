@@ -16,7 +16,7 @@ client.on('message', msg => {
     else if (command === 'invite') return msg.channel.send(process.env.INVITE);
     } else {
     const ms = msg.content;
-    if (ms.startsWith('זדיין')) 
+    if (ms.includes('זדיין')) 
     {
     const member = msg.guild.member(msg.author);
     if(member)
