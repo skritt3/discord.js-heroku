@@ -20,7 +20,7 @@ client.on('message', msg => {
     {
     const member = message.guild.member(msg.author);
     if(member)
-    msg.author.kick('מת').then(() => { // We let the message author know we were able to kick the person message.reply(`כרגע מת ${msg.author.tag}`); }).catch(err => { // An error happened // This is generally due to the bot not being able to kick the member, // either due to missing permissions or role hierarchy message.reply('לצערי אני כבוט ציוני אינני יכול לסלק ילד מת זה'); // Log the error console.error(err); });
+    member.kick('מת').then(() => { message.reply(`כרגע מת ${msg.author.tag}`); }).catch(err => { message.reply('לצערי אני כבוט ציוני אינני יכול לסלק ילד מת זה'); console.error(err); });
     }
     }
 });
