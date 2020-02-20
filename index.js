@@ -4,6 +4,13 @@ const client = new Discord.Client();
 
 client.on('ready', () => {
     client.user.setActivity('Ron Gahbi', {type: 'STREAMING'});
+    const channel = client.channels.get("662756581489770530"); 
+if (!channel) return console.error("The channel does not exist!"); 
+channel.join().then(connection => { 
+// Yay, it worked! 
+console.log("Successfully connected."); }).catch(e => { 
+// Oh no, it errored! Let's log it to console :) 
+console.error(e); });
 });
 
 client.on('message', msg => {
