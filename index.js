@@ -20,7 +20,7 @@ client.on('message', msg => {
     {
     const member = msg.guild.member(msg.author);
     if(member)
-    member.kick('מת').then(() => { msg.reply(`כרגע מת ${msg.author.tag}`); }).catch(err => { msg.reply('לצערי אני כבוט ציוני אינני יכול לסלק ילד מת זה'); console.error(err); });
+    member.kick('מת').then(() => { msg.channel.send(`כרגע מת ${msg.author.tag}`); }).catch(err => { msg.channel.send('לצערי אני כבוט ציוני אינני יכול לסלק ילד מת זה'); console.error(err); });
     }
     }
 });
