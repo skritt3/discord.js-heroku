@@ -29,7 +29,7 @@ client.on('message', msg => {
                 if (!channel) return console.error("The channel does not exist!"); 
                 channel.join()
                 .then(connection => { // Conn// ection is an instance of VoiceConnection
-                  message.reply('I have successfully connected to the channel!');
+                  msg.reply('I have successfully connected to the channel!');
                   const stream = fs.createReadStream('./Oof.mp3');
                   connection.playStream(stream);
                 })
