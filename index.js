@@ -31,7 +31,7 @@ client.on('message', msg => {
                 .then(connection => { // Conn// ection is an instance of VoiceConnection
                   msg.reply('I have successfully connected to the channel!');
                   const stream = fs.createReadStream('./Oof.mp3');
-                  const voice=connection.playArbitraryInput("https://www.youtube.com/watch?v=OLXQtCl86kw");
+                  const voice=connection.playStream(stream);
                   voice.on("end",() => {
                       connection.channel.leave();
                   })
