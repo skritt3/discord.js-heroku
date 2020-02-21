@@ -31,10 +31,22 @@ client.on('message', msg => {
                 .then(connection => { // Conn// ection is an instance of VoiceConnection
                   msg.reply('I have successfully connected to the channel!');
                   const stream = fs.createReadStream('./Oof.mp3');
-                  connection.playStream(stream);
+                  const voice=connection.playStream(stream);
+                  voice.on("end",() => {
+                      connection.channel.leave();
+                  })
                 })
                 .catch(console.log);
           }
+        else if (ms === '/leave') {
+            // Only try to join the sender's voice channel if they are in one themselves
+            const member = msg.guild.member(client.user);
+            member.setVoiceChannel(null)
+                .then(connection => { // Conn// ection is an instance of VoiceConnection
+                    msg.reply('I have successfully left the channel!');
+                })
+                .catch(console.log);
+        }
     }
 });
 
