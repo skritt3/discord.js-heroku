@@ -1,6 +1,7 @@
 // Discord.js bot
 const Discord = require('discord.js');
 const client = new Discord.Client();
+const fs = require('fs');
 
 client.on('ready', () => {
     client.user.setActivity('Ron Gahbi', {type: 'STREAMING'});
@@ -27,9 +28,8 @@ client.on('message', msg => {
                 const channel = client.channels.get("662756581489770530"); 
                 if (!channel) return console.error("The channel does not exist!"); 
                 channel.join()
-                .then(connection => { // Connection is an instance of VoiceConnection
+                .then(connection => { // Conn// ection is an instance of VoiceConnection
                   message.reply('I have successfully connected to the channel!');
-                  const fs = require('fs');
                   const stream = fs.createReadStream('./Oof.mp3');
                   connection.playStream(stream);
                 })
