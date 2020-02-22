@@ -12,15 +12,23 @@ client.on('ready', () => {
 async function gahbi(value)
 {
     if (value === 0) return 0;
-    client.user.setActivity('R', {type: 'STREAMING'});
-    client.user.setActivity('Ro', {type: 'STREAMING'});
-    client.user.setActivity('Ron', {type: 'STREAMING'});
-    client.user.setActivity('Ron ', {type: 'STREAMING'});
-    client.user.setActivity('Ron G', {type: 'STREAMING'});
-    client.user.setActivity('Ron Ga', {type: 'STREAMING'});
-    client.user.setActivity('Ron Gah', {type: 'STREAMING'});
-    client.user.setActivity('Ron Gahb', {type: 'STREAMING'});
-    client.user.setActivity('Ron Gahbi', {type: 'STREAMING'});
+    await client.user.setActivity('R', {type: 'STREAMING'});
+    await timeout(1000);
+    await client.user.setActivity('Ro', {type: 'STREAMING'});
+    await timeout(1000);
+    await client.user.setActivity('Ron', {type: 'STREAMING'});
+    await timeout(1000);
+    await client.user.setActivity('Ron ', {type: 'STREAMING'});
+    await timeout(1000);
+    await client.user.setActivity('Ron G', {type: 'STREAMING'});
+    await timeout(1000);
+    await client.user.setActivity('Ron Ga', {type: 'STREAMING'});
+    await timeout(1000);
+    await client.user.setActivity('Ron Gah', {type: 'STREAMING'});
+    await timeout(1000);
+    await client.user.setActivity('Ron Gahb', {type: 'STREAMING'});
+    await timeout(1000);
+    await client.user.setActivity('Ron Gahbi', {type: 'STREAMING'});
     await timeout(1000);
     return value + await gahbi(value - 1);
 }
