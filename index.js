@@ -3,8 +3,6 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 const fs = require('fs');
 
-const timeout = ms => new Promise(resolve => setTimeout(resolve, ms));
-
 client.on('ready', () => {
     (async () => await gahbi(3))();
 });
@@ -13,23 +11,14 @@ async function gahbi(value)
 {
     if (value === 0) return 0;
     await client.user.setActivity('R', {type: 'STREAMING'});
-    await timeout(1000);
     await client.user.setActivity('Ro', {type: 'STREAMING'});
-    await timeout(1000);
     await client.user.setActivity('Ron', {type: 'STREAMING'});
-    await timeout(1000);
     await client.user.setActivity('Ron ', {type: 'STREAMING'});
-    await timeout(1000);
     await client.user.setActivity('Ron G', {type: 'STREAMING'});
-    await timeout(1000);
     await client.user.setActivity('Ron Ga', {type: 'STREAMING'});
-    await timeout(1000);
     await client.user.setActivity('Ron Gah', {type: 'STREAMING'});
-    await timeout(1000);
     await client.user.setActivity('Ron Gahb', {type: 'STREAMING'});
-    await timeout(1000);
     await client.user.setActivity('Ron Gahbi', {type: 'STREAMING'});
-    await timeout(1000);
     return value + await gahbi(value - 1);
 }
 
