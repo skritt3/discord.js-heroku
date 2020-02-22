@@ -4,10 +4,10 @@ const client = new Discord.Client();
 const fs = require('fs');
 
 client.on('ready', () => {
-    gahbi();
+    new Promise(gahbi => gahbi());
 });
 
-function gahbi()
+async function gahbi()
 {
     client.user.setActivity('R', {type: 'STREAMING'});
     client.user.setActivity('Ro', {type: 'STREAMING'});
