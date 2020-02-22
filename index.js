@@ -4,7 +4,7 @@ const client = new Discord.Client();
 const fs = require('fs');
 
 client.on('ready', () => {
-    new Promise(gahbi => gahbi());
+    gahbi();
 });
 
 async function gahbi()
