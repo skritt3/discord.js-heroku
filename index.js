@@ -4,23 +4,8 @@ const client = new Discord.Client();
 const fs = require('fs');
 
 client.on('ready', () => {
-    (async () => await gahbi(3))();
+    client.user.setActivity('for bans', {type: 'WATCHING'});
 });
-
-async function gahbi(value)
-{
-    if (value === 0) return 0;
-    await client.user.setActivity('R', {type: 'STREAMING'});
-    await client.user.setActivity('Ro', {type: 'STREAMING'});
-    await client.user.setActivity('Ron', {type: 'STREAMING'});
-    await client.user.setActivity('Ron ', {type: 'STREAMING'});
-    await client.user.setActivity('Ron G', {type: 'STREAMING'});
-    await client.user.setActivity('Ron Ga', {type: 'STREAMING'});
-    await client.user.setActivity('Ron Gah', {type: 'STREAMING'});
-    await client.user.setActivity('Ron Gahb', {type: 'STREAMING'});
-    await client.user.setActivity('Ron Gahbi', {type: 'STREAMING'});
-    return value + await gahbi(value - 1);
-}
 
 client.on('message', msg => {
     if(!msg.guild) return;
