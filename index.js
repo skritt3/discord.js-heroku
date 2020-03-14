@@ -41,11 +41,24 @@ client.on('message', msg => {
         else if (ms === '/leave') {
             // Only try to join the sender's voice channel if they are in one themselves
             const member = msg.guild.member(client.user);
+            if(member.voiceChannel)
             member.setVoiceChannel(null)
                 .then(connection => { // Conn// ection is an instance of VoiceConnection
                     msg.reply('I have successfully left the channel!');
                 })
                 .catch(console.log);
+            else if (msg.member.voiceChannel) {
+                msg.member.voiceChannel.join()
+                    .then(connection => { // Conn// ection is an instance of VoiceConnection
+                        msg.reply('I have successfully connected to the channel!');
+                        const stream = fs.createReadStream('./Oof.mp3');
+                        const voice = connection.playStream(stream);
+                        voice.on("end", () => {
+                            connection.channel.leave();
+                        })
+                    })
+                    .catch(console.log);
+            } else msg.reply('You need to join a voice channel first!');
         }
     }
 });
