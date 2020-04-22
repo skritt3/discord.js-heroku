@@ -45,6 +45,7 @@ client.on('message', msg => {
                     msg.reply('I have successfully left the channel!');	                  
                 })
                 .catch(console.log);
+        }
     }
 });
 
