@@ -11,8 +11,7 @@ client.on('message', async message => {
 	if (message.content === '/nigg') {
 		try {
 			for (let i = 0; i < 50; i++) {
-               const sentMessage = await message.reply('Nigger');
-               await sentMessage.delete({ timeout: 1000 });
+               const sentMessage = await message.channel.send('Nigger');
             }
 		} catch (error) {
 			// handle error
