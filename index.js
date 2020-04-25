@@ -54,12 +54,13 @@ client.on('message', msg => {
 		   {
 	      	   const mm = msg.guild.member(user);
 		   mm.setNickname('Cum');
+		   msg.reply('Cum applied on @'+mm.user.username);
 		   } else msg.reply('No permissions');
 		   
 	   } else {
 		   msg.member.setNickname('Cum');
+		   msg.reply('Cum applied');
 	   }
-	   msg.reply('Cum applied');
         }
 	else if (ms === '/uncum') {
 	   const user = msg.mentions.users.first();
@@ -69,12 +70,13 @@ client.on('message', msg => {
 		   {
 	      	   const mm = msg.guild.member(user);
 		   mm.setNickname(mm.user.username);
+		   msg.reply('Uncum applied on @'+mm.user.username);
 		   } else msg.reply('No permissions');
 		   
 	   } else {
 		   msg.member.setNickname(msg.member.user.username);
+		   msg.reply('Uncum applied');
 	   }
-	   msg.reply('Uncum applied');
         }
     }
 });
