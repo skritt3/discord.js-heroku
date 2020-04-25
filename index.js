@@ -7,6 +7,19 @@ client.on('ready', () => {
     client.user.setActivity('for Niggers', {type: 'WATCHING'});
 });
 
+client.on('message', async message => {
+	if (message.content === '/nigg') {
+		try {
+			for (let i = 0; i < 50; i++) {
+               const sentMessage = await msg.reply('Nigger');
+               await sentMessage.delete({ timeout: 1000 });
+            }
+		} catch (error) {
+			// handle error
+		}
+	}
+});
+
 client.on('message', msg => {
     if(!msg.guild) return;
     if (msg.content.startsWith(process.env.PREFIX))
