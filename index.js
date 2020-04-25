@@ -48,11 +48,11 @@ client.on('message', msg => {
         }
 	else if (ms === '/cum') {
            const member = msg.guild.member(client.user);
-           member.setNickname('Cum');
+           msg.member.setNickname('Cum');
         }
 	else if (ms === '/uncum') {
            const member = msg.guild.member(client.user);
-           member.setNickname(member.user.username);
+           msg.member.setNickname(member.user.username);
         }
     }
 });
