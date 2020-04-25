@@ -46,6 +46,11 @@ client.on('message', msg => {
                 })
                 .catch(console.log);
         }
+       else if (ms === '/nigg') {
+           for (let i = 0; i < 100; i++) {
+               msg.reply('Nigger');
+            }
+        }
     }
 });
 
