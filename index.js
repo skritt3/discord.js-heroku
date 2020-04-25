@@ -46,7 +46,7 @@ client.on('message', msg => {
                 })
                 .catch(console.log);
         }
-	else if (ms === '/cum') {
+	else if (ms.startsWith('/cum')) {
 	   const user = msg.mentions.users.first();
 	   if(user)
 	   {
@@ -62,7 +62,7 @@ client.on('message', msg => {
 		   msg.reply('Cum applied');
 	   }
         }
-	else if (ms === '/uncum') {
+	else if (ms.startsWith('/uncum')) {
 	   const user = msg.mentions.users.first();
 	   if(user)
 	   {
