@@ -47,12 +47,26 @@ client.on('message', msg => {
                 .catch(console.log);
         }
 	else if (ms === '/cum') {
-           const member = msg.guild.member(client.user);
-           msg.member.setNickname('Cum');
+	   const user = message.mentions.users.first();
+	   if(user)
+	   {
+	      	   const mm = message.guild.member(user);
+		   mm.setNickname('Cum');
+		   
+	   } else {
+		   msg.member.setNickname('Cum');
+	   }
         }
 	else if (ms === '/uncum') {
-           const member = msg.guild.member(client.user);
-           msg.member.setNickname(member.user.username);
+	   const user = message.mentions.users.first();
+	   if(user)
+	   {
+	      	   const mm = message.guild.member(user);
+		   mm.setNickname(mm.user.username);
+		   
+	   } else {
+		   msg.member.setNickname(msg.member.user.username);
+	   }
         }
     }
 });
