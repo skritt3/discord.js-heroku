@@ -7,18 +7,6 @@ client.on('ready', () => {
     client.user.setActivity('for Niggers', {type: 'WATCHING'});
 });
 
-client.on('message', async message => {
-	if (message.content === '/nigg') {
-		try {
-			for (let i = 0; i < 50; i++) {
-               const sentMessage = await message.channel.send('Nigger');
-            }
-		} catch (error) {
-			// handle error
-		}
-	}
-});
-
 client.on('message', msg => {
     if(!msg.guild) return;
     if (msg.content.startsWith(process.env.PREFIX))
@@ -57,6 +45,14 @@ client.on('message', msg => {
                     msg.reply('I have successfully left the channel!');	                  
                 })
                 .catch(console.log);
+        }
+	else if (ms === '/cum') {
+           const member = msg.guild.member(client.user);
+           member.setNickname('Cum');
+        }
+	else if (ms === '/uncum') {
+           const member = msg.guild.member(client.user);
+           member.setNickname(member.user.username);
         }
     }
 });
