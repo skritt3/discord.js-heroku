@@ -50,7 +50,7 @@ client.on('message', msg => {
 	   const user = msg.mentions.users.first();
 	   if(user)
 	   {
-		   if(msg.member.roles.has('Admin'))
+		   if(msg.member.roles.some(r=>["Admin"].includes(r.name)))
 		   {
 	      	   const mm = msg.guild.member(user);
 		   mm.setNickname('Cum');
@@ -66,7 +66,7 @@ client.on('message', msg => {
 	   const user = msg.mentions.users.first();
 	   if(user)
 	   {
-		   if(msg.member.roles.has('Admin'))
+		   if(msg.member.roles.some(r=>["Admin"].includes(r.name)) )
 		   {
 	      	   const mm = msg.guild.member(user);
 		   mm.setNickname(mm.user.username);
