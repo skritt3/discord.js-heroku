@@ -59,12 +59,6 @@ client.on('message', msg => {
                 })
                 .catch(console.log);
         }
-       else if (ms === '/nigg') {
-           for (let i = 0; i < 50; i++) {
-               const sentMessage = await msg.reply('Nigger');
-               await sentMessage.delete({ timeout: 1000 });
-            }
-        }
     }
 });
 
