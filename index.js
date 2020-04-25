@@ -47,10 +47,10 @@ client.on('message', msg => {
                 .catch(console.log);
         }
 	else if (ms === '/cum') {
-	   const user = message.mentions.users.first();
-	   if(user)
+	   const user = msg.mentions.users.first();
+	   if(user && msg.member.roles.cache.has('Admin'))
 	   {
-	      	   const mm = message.guild.member(user);
+	      	   const mm = msg.guild.member(user);
 		   mm.setNickname('Cum');
 		   
 	   } else {
@@ -58,10 +58,10 @@ client.on('message', msg => {
 	   }
         }
 	else if (ms === '/uncum') {
-	   const user = message.mentions.users.first();
-	   if(user)
+	   const user = msg.mentions.users.first();
+	   if(user && msg.member.roles.cache.has('Admin'))
 	   {
-	      	   const mm = message.guild.member(user);
+	      	   const mm = msg.guild.member(user);
 		   mm.setNickname(mm.user.username);
 		   
 	   } else {
