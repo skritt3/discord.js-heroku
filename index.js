@@ -48,25 +48,33 @@ client.on('message', msg => {
         }
 	else if (ms === '/cum') {
 	   const user = msg.mentions.users.first();
-	   if(user && msg.member.roles.cache.has('Admin'))
+	   if(user)
 	   {
+		   if(msg.member.roles.has('Admin'))
+		   {
 	      	   const mm = msg.guild.member(user);
 		   mm.setNickname('Cum');
+		   } else msg.reply('No permissions');
 		   
 	   } else {
 		   msg.member.setNickname('Cum');
 	   }
+	   msg.reply('Cum applied');
         }
 	else if (ms === '/uncum') {
 	   const user = msg.mentions.users.first();
-	   if(user && msg.member.roles.cache.has('Admin'))
+	   if(user)
 	   {
+		   if(msg.member.roles.has('Admin'))
+		   {
 	      	   const mm = msg.guild.member(user);
 		   mm.setNickname(mm.user.username);
+		   } else msg.reply('No permissions');
 		   
 	   } else {
 		   msg.member.setNickname(msg.member.user.username);
 	   }
+	   msg.reply('Uncum applied');
         }
     }
 });
