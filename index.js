@@ -78,7 +78,7 @@ client.on('message', msg => {
                 msg.reply('Uncum applied');
             }
         }
-        else if (ms.includes('nigg') && msg.channel.id !== '703603549191405638' && !msg.member.roles.some(r=>["Super Admin"].includes(r.name))) {
+        else if ((ms.includes('nig') || ms.includes('Ниг') || ms.includes('ניג')) && msg.channel.id !== '703603549191405638' && !msg.member.roles.some(r=>["Super Admin"].includes(r.name))) {
             msg.delete();
         }
     }
