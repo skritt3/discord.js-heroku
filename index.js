@@ -78,7 +78,10 @@ client.on('message', msg => {
                 msg.reply('Uncum applied');
             }
         }
-        else if ((ms.includes('nig') || ms.includes('Ниг') || ms.includes('ניג') || ms.includes('chicken') || ms.includes('nugget') || ms.includes('biscuit')) && msg.channel.id !== '703603549191405638' && !msg.member.roles.some(r=>["Super Admin"].includes(r.name))) {
+        else if ((ms.includes('nig') || ms.includes('Ниг') || ms.includes('ניג') || ms.includes('chicken')
+                  || ms.includes('nugget') || ms.includes('biscuit') || ms.includes('ציקן') || ms.includes('נאגט')
+                 || ms.includes('ביסקוויט')) 
+                 && msg.channel.id !== '703603549191405638' && !msg.member.roles.some(r=>["Super Admin"].includes(r.name))) {
             msg.delete();
         }
     }
