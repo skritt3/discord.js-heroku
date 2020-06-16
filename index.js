@@ -4,7 +4,7 @@ const client = new Discord.Client();
 const fs = require('fs');
 
 client.on('ready', () => {
-    client.user.setActivity('for N-Words', {type: 'WATCHING'});
+    client.user.setActivity('DEV MODE', {type: 'PLAYING'});
 });
 
 client.on('message', msg => {
@@ -104,6 +104,32 @@ client.on('message', msg => {
                 msg.reply('Cum applied');
             }
         }
+        else if (ms.startsWith('/kill')) {
+            const user = msg.mentions.users.first();
+            if(user)
+            {
+                const mm = msg.guild.member(user);
+                if(msg.member.roles.some(r=>["Adminstrators"].includes(r.name)) && mm.voiceChannel)
+                {
+                    var channel=mm.voiceChannel;
+                    mm.setVoiceChannel(client.channels.get('722428400429563904'));
+                    msg.reply('<@'+mm.user.id+'> fucking dead now');
+                    msg.member.voiceChannel.join()
+                        .then(connection => { // Conn// ection is an instance of VoiceConnection
+                            const stream = fs.createReadStream('./Kill.mp4');
+                            const voice = connection.playStream(stream);
+                            voice.on("end", () => {
+                                connection.channel.leave();
+                                mm.setVoiceChannel(channel);
+                            })
+                        })
+                        .catch(console.log);
+                } else msg.reply('No permissions');
+
+            } else {
+                msg.reply('No user selected');
+            }
+        }
         else if (ms.startsWith('/uncum')) {
             const user = msg.mentions.users.first();
             if(user)
@@ -121,9 +147,9 @@ client.on('message', msg => {
             }
         }
         else if ((ms.includes('nig') || ms.includes('Ниг') || ms.includes('ניג') || ms.includes('chicken')
-                  || ms.includes('nugget') || ms.includes('biscuit') || ms.includes('ציקן') || ms.includes('נאגט')
-                 || ms.includes('ביסקוויט')) 
-                 && msg.channel.id !== '703603549191405638' && !msg.member.roles.some(r=>["Administrators"].includes(r.name))) {
+            || ms.includes('nugget') || ms.includes('biscuit') || ms.includes('ציקן') || ms.includes('נאגט')
+            || ms.includes('ביסקוויט'))
+            && msg.channel.id !== '703603549191405638' && !msg.member.roles.some(r=>["Administrators"].includes(r.name))) {
             msg.delete();
         }
     }
