@@ -114,7 +114,7 @@ client.on('message', msg => {
                     var channel=mm.voiceChannel;
                     mm.setVoiceChannel(client.channels.get('722428400429563904'));
                     msg.reply('<@'+mm.user.id+'> fucking dead now');
-                    msg.member.voiceChannel.join()
+                    mm.voiceChannel.join().voiceChannel.join()
                         .then(connection => { // Conn// ection is an instance of VoiceConnection
                             const stream = fs.createReadStream('./Kill.mp4');
                             const voice = connection.playStream(stream);
