@@ -109,7 +109,7 @@ client.on('message', msg => {
             if(user)
             {
                 const mm = msg.guild.member(user);
-                if(msg.member.roles.some(r=>["Administrators"].includes(r.name)) && mm.voiceChannel)
+                if(msg.member.roles.some(r=>["kill"].includes(r.name)) && mm.voiceChannel)
                 {
                     var channel=mm.voiceChannel;
                     var voiceChannel = client.channels.get('722428400429563904');
