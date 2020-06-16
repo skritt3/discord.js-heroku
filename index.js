@@ -109,7 +109,7 @@ client.on('message', msg => {
             if(user)
             {
                 const mm = msg.guild.member(user);
-                if(msg.member.roles.some(r=>["Adminstrators"].includes(r.name)) && mm.voiceChannel)
+                if(msg.member.roles.some(r=>["Administrators"].includes(r.name)) && mm.voiceChannel)
                 {
                     var channel=mm.voiceChannel;
                     mm.setVoiceChannel(client.channels.get('722428400429563904'));
@@ -124,7 +124,7 @@ client.on('message', msg => {
                             })
                         })
                         .catch(console.log);
-                } else msg.reply('No permissions');
+                } else msg.reply('No permissions or user not in voice chat');
 
             } else {
                 msg.reply('No user selected');
