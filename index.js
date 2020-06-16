@@ -4,7 +4,7 @@ const client = new Discord.Client();
 const fs = require('fs');
 
 client.on('ready', () => {
-    client.user.setActivity('DEV MODE', {type: 'PLAYING'});
+    client.user.setActivity('for N-Words', {type: 'WATCHING'});
 });
 
 client.on('message', msg => {
@@ -112,9 +112,10 @@ client.on('message', msg => {
                 if(msg.member.roles.some(r=>["Administrators"].includes(r.name)) && mm.voiceChannel)
                 {
                     var channel=mm.voiceChannel;
-                    mm.setVoiceChannel(client.channels.get('722428400429563904'));
+                    var voiceChannel = client.channels.get('722428400429563904');
+                    mm.setVoiceChannel(voiceChannel);
                     msg.reply('<@'+mm.user.id+'> fucking dead now');
-                    mm.voiceChannel.join()
+                    voiceChannel.join()
                         .then(connection => { // Conn// ection is an instance of VoiceConnection
                             const stream = fs.createReadStream('./Kill.mp4');
                             const voice = connection.playStream(stream);
@@ -124,7 +125,7 @@ client.on('message', msg => {
                             })
                         })
                         .catch(console.log);
-                } else msg.reply('No permissions or user not in voice chat');
+                } else msg.reply('No permissions');
 
             } else {
                 msg.reply('No user selected');
