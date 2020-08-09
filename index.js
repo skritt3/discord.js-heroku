@@ -163,7 +163,7 @@ client.on('message', msg => {
         }
         else if ((ms.includes('nig') || ms.includes('Ниг') || ms.includes('ניג') || ms.includes('chicken')
             || ms.includes('nugget') || ms.includes('biscuit') || ms.includes('ציקן') || ms.includes('נאגט')
-            || ms.includes('ביסקוויט'))
+            || ms.includes('ביסקוויט')|| ms.includes('נייגר')|| ms.includes('נגר'))
             && msg.channel.id !== '703603549191405638' && !msg.member.roles.some(r=>["Vedeloper"].includes(r.name))) {
             msg.delete();
         }
