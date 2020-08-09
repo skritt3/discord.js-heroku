@@ -38,6 +38,20 @@ client.on('message', msg => {
                     .catch(console.log);
             } else msg.reply('You need to join a voice channel first!');
         }
+        else if (ms === '/pp') {
+            // Only try to join the sender's voice channel if they are in one themselves
+            if (msg.member.voiceChannel) {
+                msg.member.voiceChannel.join()
+                    .then(connection => { // Conn// ection is an instance of VoiceConnection
+                        const stream = fs.createReadStream('./Pp.mp3');
+                        const voice = connection.playStream(stream);
+                        voice.on("end", () => {
+                            connection.channel.leave();
+                        })
+                    })
+                    .catch(console.log);
+            } else msg.reply('You need to join a voice channel first!');
+        }
         else if (ms === '/bruh') {
             // Only try to join the sender's voice channel if they are in one themselves
             if (msg.member.voiceChannel) {
@@ -92,7 +106,7 @@ client.on('message', msg => {
             const user = msg.mentions.users.first();
             if(user)
             {
-                if(msg.member.roles.some(r=>["Admin"].includes(r.name)))
+                if(msg.member.roles.some(r=>["Admins"].includes(r.name)))
                 {
                     const mm = msg.guild.member(user);
                     mm.setNickname('Cum');
@@ -135,7 +149,7 @@ client.on('message', msg => {
             const user = msg.mentions.users.first();
             if(user)
             {
-                if(msg.member.roles.some(r=>["Admin"].includes(r.name)) )
+                if(msg.member.roles.some(r=>["Admins"].includes(r.name)) )
                 {
                     const mm = msg.guild.member(user);
                     mm.setNickname(mm.user.username);
@@ -150,7 +164,7 @@ client.on('message', msg => {
         else if ((ms.includes('nig') || ms.includes('Ниг') || ms.includes('ניג') || ms.includes('chicken')
             || ms.includes('nugget') || ms.includes('biscuit') || ms.includes('ציקן') || ms.includes('נאגט')
             || ms.includes('ביסקוויט'))
-            && msg.channel.id !== '703603549191405638' && !msg.member.roles.some(r=>["Administrators"].includes(r.name))) {
+            && msg.channel.id !== '703603549191405638' && !msg.member.roles.some(r=>["Vedeloper"].includes(r.name))) {
             msg.delete();
         }
     }
