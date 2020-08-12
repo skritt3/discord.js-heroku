@@ -4,7 +4,7 @@ const client = new Discord.Client();
 const fs = require('fs');
 
 client.on('ready', () => {
-    client.user.setActivity('for N-Words', {type: 'WATCHING'});
+    client.user.setActivity('Afik the Nigger', {type: 'WATCHING'});
 });
 
 client.on('message', msg => {
