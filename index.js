@@ -4,7 +4,7 @@ const client = new Discord.Client();
 const fs = require('fs');
 
 client.on('ready', () => {
-    client.user.setActivity('Afik the Nibber', {type: 'WATCHING'});
+    client.user.setActivity('my balls', {type: 'STREAMING'});
 });
 
 client.on('message', msg => {
