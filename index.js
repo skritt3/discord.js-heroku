@@ -52,6 +52,20 @@ client.on('message', msg => {
                     .catch(console.log);
             } else msg.reply('You need to join a voice channel first!');
         }
+         else if (ms === '/ws') {
+            // Only try to join the sender's voice channel if they are in one themselves
+            if (msg.member.voiceChannel) {
+                msg.member.voiceChannel.join()
+                    .then(connection => { // Conn// ection is an instance of VoiceConnection
+                        const stream = fs.createReadStream('./Areyawinningson.mp3');
+                        const voice = connection.playStream(stream);
+                        voice.on("end", () => {
+                            connection.channel.leave();
+                        })
+                    })
+                    .catch(console.log);
+            } else msg.reply('You need to join a voice channel first!');
+        }
          else if (ms === '/giveup') {
             // Only try to join the sender's voice channel if they are in one themselves
             if (msg.member.voiceChannel) {
