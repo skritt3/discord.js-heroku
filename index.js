@@ -30,11 +30,11 @@ client.on("messageReactionRemove", (e, n) => {
 
 client.on('message', msg => {
     if(!msg.guild) return;
-    if (e.content.startsWith("!reaction")) {
-        if (!e.channel.guild) return;
+    if (msg.content.startsWith("!reaction") && msg.member.roles.some(r=>["Vedeloper"].includes(r.name))) {
+        if (!msg.channel.guild) return;
         for (let o in emojiname) {
-            var n = [e.guild.emojis.find(e => e.name == emojiname[o])];
-            for (let o in n) e.react(n[o])
+            var n = [msg.guild.emojis.find(e => e.name == emojiname[o])];
+            for (let o in n) msg.react(n[o])
         }
     }
     else if (msg.content.startsWith(process.env.PREFIX))
