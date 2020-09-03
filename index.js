@@ -7,9 +7,37 @@ client.on('ready', () => {
     client.user.setActivity('my balls', {type: 'STREAMING',url: 'https://www.twitch.tv/xdinem'});
 });
 
+var emojiname = ["valorant", "rl","r6","minecraft","gtav","fallguys"],
+    rolename = ["Valorant", "Rocket League","Rainbow Six Siege","Minecraft","GTA V","Fall Guys"];
+
+client.on("messageReactionAdd", (e, n) => {
+    if (n && !n.bot && e.message.channel.guild)
+        for (let o in emojiname)
+            if (e.emoji.name == emojiname[o]) {
+                let i = e.message.guild.roles.find(e => e.name == rolename[o]);
+                e.message.guild.member(n).addRole(i).catch(console.error)
+            }
+});
+
+client.on("messageReactionRemove", (e, n) => {
+    if (n && !n.bot && e.message.channel.guild)
+        for (let o in emojiname)
+            if (e.emoji.name == emojiname[o]) {
+                let i = e.message.guild.roles.find(e => e.name == rolename[o]);
+                e.message.guild.member(n).removeRole(i).catch(console.error)
+            }
+});
+
 client.on('message', msg => {
     if(!msg.guild) return;
-    if (msg.content.startsWith(process.env.PREFIX))
+    if (e.content.startsWith("!reaction")) {
+        if (!e.channel.guild) return;
+        for (let o in emojiname) {
+            var n = [e.guild.emojis.find(e => e.name == emojiname[o])];
+            for (let o in n) e.react(n[o])
+        }
+    }
+    else if (msg.content.startsWith(process.env.PREFIX))
     {
         const command = msg.content.split(' ')[0].substr(process.env.PREFIX.length);
         const args = msg.content.split(' ').slice(1).join(' ');
