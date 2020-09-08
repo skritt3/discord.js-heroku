@@ -4,7 +4,7 @@ const client = new Discord.Client();
 const fs = require('fs');
 
 client.on('ready', () => {
-    client.user.setActivity('my balls', {type: 'STREAMING',url: 'https://www.twitch.tv/xdinem'});
+    client.user.setActivity('imagine being a living sack of shit');
 });
 
 var emojiname = ["valorant", "rl","r6","minecraft","gtav","fallguys"],
