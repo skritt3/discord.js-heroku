@@ -7,8 +7,8 @@ client.on('ready', () => {
     client.user.setActivity('imagine being a living sack of shit');
 });
 
-var emojiname = ["valorant", "rl","r6","minecraft","gtav","fallguys"],
-    rolename = ["Valorant", "Rocket League","Rainbow Six Siege","Minecraft","GTA V","Fall Guys"];
+var emojiname = ["valorant", "rl","r6","minecraft","gtav","fallguys","amongus"],
+    rolename = ["Valorant", "Rocket League","Rainbow Six Siege","Minecraft","GTA V","Fall Guys","Among Us"];
 
 client.on("messageReactionAdd", (e, n) => {
     if (n && !n.bot && e.message.channel.guild)
@@ -17,6 +17,16 @@ client.on("messageReactionAdd", (e, n) => {
                 let i = e.message.guild.roles.find(e => e.name == rolename[o]);
                 e.message.guild.member(n).addRole(i).catch(console.error)
             }
+});
+
+client.on("messageUpdate", (o, n) => {
+    if (n.content.startsWith("!reaction") && n.member.roles.some(r=>["Vedeloper"].includes(r.name))) {
+        if (!n.channel.guild) return;
+        for (let o in emojiname) {
+            var n = [msg.guild.emojis.find(e => e.name == emojiname[o])];
+            for (let o in n) msg.react(n[o])
+        }
+    }
 });
 
 client.on("messageReactionRemove", (e, n) => {
