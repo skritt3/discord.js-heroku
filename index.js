@@ -200,7 +200,7 @@ client.on('message', msg => {
         }
         else if (ms.startsWith('/kill')) {
             //const user = msg.mentions.users.first();
-            msg.mentions.users.foreach((user) =>{
+            msg.mentions.users.forEach((user) =>{
             if(user)
             {
                 const mm = msg.guild.member(user);
