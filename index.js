@@ -199,7 +199,8 @@ client.on('message', msg => {
             }
         }
         else if (ms.startsWith('/kill')) {
-            const user = msg.mentions.users.first();
+            //const user = msg.mentions.users.first();
+            msg.mentions.users.foreach((user) =>{
             if(user)
             {
                 const mm = msg.guild.member(user);
@@ -224,6 +225,7 @@ client.on('message', msg => {
             } else {
                 msg.reply('No user selected');
             }
+            });
         }
         else if (ms.startsWith('/uncum')) {
             const user = msg.mentions.users.first();
