@@ -199,7 +199,6 @@ client.on('message', msg => {
             }
         }
         else if (ms.startsWith('/kill')) {
-                const mm = msg.guild.member(user);
                 if(msg.member.roles.some(r=>["kill"].includes(r.name)) && mm.voiceChannel)
                 {
                     var channel=mm.voiceChannel;
