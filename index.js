@@ -199,17 +199,15 @@ client.on('message', msg => {
             }
         }
         else if (ms.startsWith('/kill')) {
+            const user = msg.mentions.users.first();
+            if(user)
+            {
+                const mm = msg.guild.member(user);
                 if(msg.member.roles.some(r=>["kill"].includes(r.name)) && mm.voiceChannel)
                 {
                     var channel=mm.voiceChannel;
                     var voiceChannel = client.channels.get('722428400429563904');
-                    msg.mentions.users.forEach((user) ={
-                        if(user)
-                        {
-                            const mm = msg.guild.member(user);
-                            mm.setVoiceChannel(voiceChannel);
-                        }
-                    });
+                    mm.setVoiceChannel(voiceChannel);
                     msg.reply('<@'+mm.user.id+'> fucking dead now');
                     voiceChannel.join()
                         .then(connection => { // Conn// ection is an instance of VoiceConnection
@@ -217,17 +215,14 @@ client.on('message', msg => {
                             const voice = connection.playStream(stream);
                             voice.on("end", () => {
                                 connection.channel.leave();
-                                msg.mentions.users.forEach((user) ={
-                        if(user)
-                        {
-                            const mm = msg.guild.member(user);
-                            mm.setVoiceChannel(channel);
-                        }
-                    });
+                                mm.setVoiceChannel(channel);
                             })
                         })
                         .catch(console.log);
                 } else msg.reply('No permissions');
+            } else {
+                msg.reply('No user selected');
+            }
         }
         else if (ms.startsWith('/uncum')) {
             const user = msg.mentions.users.first();
