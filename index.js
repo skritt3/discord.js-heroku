@@ -81,7 +81,7 @@ client.on('message', msg => {
             if (msg.member.voiceChannel) {
                 msg.member.voiceChannel.join()
                     .then(connection => { // Conn// ection is an instance of VoiceConnection
-                        const stream = fs.createReadStream('./Bababooey.mp3');
+                        const stream = fs.createReadStream('./Babaooey.mp3');
                         const voice = connection.playStream(stream);
                         voice.on("end", () => {
                             connection.channel.leave();
