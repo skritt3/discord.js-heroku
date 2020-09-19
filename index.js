@@ -224,6 +224,20 @@ client.on('message', msg => {
                 msg.reply('No user selected');
             }
         }
+        else if (ms.startsWith('/give-n-word-pass')) {
+            const user = msg.mentions.users.first();
+            if(user)
+            {
+                if(msg.member.roles.some(r=>["Vedeloper"].includes(r.name)) )
+                {
+                    const mm = msg.guild.member(user);
+                    msg.reply('<@'+mm.user.id+'> now has the N-Word pass');
+                } else msg.reply('No permissions');
+
+            } else {
+                msg.reply('No user selected');
+            }
+        }
         else if (ms.startsWith('/uncum')) {
             const user = msg.mentions.users.first();
             if(user)
