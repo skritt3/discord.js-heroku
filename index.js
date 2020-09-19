@@ -10,7 +10,27 @@ client.on('ready', () => {
 var emojiname = ["valorant", "rl","r6","minecraft","gtav","fallguys","amongus"],
     rolename = ["Valorant", "Rocket League","Rainbow Six Siege","Minecraft","GTA V","Fall Guys","Among Us"];
 
-client.on("messageReactionAdd", (e, n) => {
+/*client.on("messageReactionAdd", (e, n) => {
+    if (n && !n.bot && e.message.channel.guild)
+        for (let o in emojiname)
+            if (e.emoji.name == emojiname[o]) {
+                let i = e.message.guild.roles.find(e => e.name == rolename[o]);
+                e.message.guild.member(n).addRole(i).catch(console.error)
+            }
+});*/
+
+client.on('messageReactionAdd', async (e, n) => {
+    // When we receive a reaction we check if the reaction is partial or not
+    if (reaction.partial) {
+        // If the message this reaction belongs to was removed the fetching might result in an API error, which we need to handle
+        try {
+            await reaction.fetch();
+        } catch (error) {
+            console.error('Something went wrong when fetching the message: ', error);
+            // Return as `reaction.message.author` may be undefined/null
+            return;
+        }
+    }
     if (n && !n.bot && e.message.channel.guild)
         for (let o in emojiname)
             if (e.emoji.name == emojiname[o]) {
