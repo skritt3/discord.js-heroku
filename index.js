@@ -10,16 +10,16 @@ client.on('ready', () => {
 var emojiname = ["valorant", "rl","r6","minecraft","gtav","fallguys","amongus"],
     rolename = ["Valorant", "Rocket League","Rainbow Six Siege","Minecraft","GTA V","Fall Guys","Among Us"];
 
-/*client.on("messageReactionAdd", (e, n) => {
+client.on("messageReactionAdd", (e, n) => {
     if (n && !n.bot && e.message.channel.guild)
         for (let o in emojiname)
             if (e.emoji.name == emojiname[o]) {
                 let i = e.message.guild.roles.find(e => e.name == rolename[o]);
                 e.message.guild.member(n).addRole(i).catch(console.error)
             }
-});*/
+});
 
-client.on('messageReactionAdd', async (e, n) => {
+/*client.on('messageReactionAdd', async (e, n) => {
     // When we receive a reaction we check if the reaction is partial or not
     if (reaction.partial) {
         // If the message this reaction belongs to was removed the fetching might result in an API error, which we need to handle
@@ -37,7 +37,7 @@ client.on('messageReactionAdd', async (e, n) => {
                 let i = e.message.guild.roles.find(e => e.name == rolename[o]);
                 e.message.guild.member(n).addRole(i).catch(console.error)
             }
-});
+});*/
 
 client.on("messageUpdate", (o, n) => {
     if (n.content.startsWith("!reaction") && n.member.roles.some(r=>["Vedeloper"].includes(r.name))) {
@@ -49,16 +49,16 @@ client.on("messageUpdate", (o, n) => {
     }
 });
 
-/*client.on("messageReactionRemove", (e, n) => {
+client.on("messageReactionRemove", (e, n) => {
     if (n && !n.bot && e.message.channel.guild)
         for (let o in emojiname)
             if (e.emoji.name == emojiname[o]) {
                 let i = e.message.guild.roles.find(e => e.name == rolename[o]);
                 e.message.guild.member(n).removeRole(i).catch(console.error)
             }
-});*/
+});
 
-client.on('messageReactionRemove', async (e, n) => {
+/*client.on('messageReactionRemove', async (e, n) => {
     // When we receive a reaction we check if the reaction is partial or not
     if (reaction.partial) {
         // If the message this reaction belongs to was removed the fetching might result in an API error, which we need to handle
@@ -76,7 +76,7 @@ client.on('messageReactionRemove', async (e, n) => {
                 let i = e.message.guild.roles.find(e => e.name == rolename[o]);
                 e.message.guild.member(n).removeRole(i).catch(console.error)
             }
-});
+});*/
 
 client.on('message', msg => {
     if(!msg.guild) return;
