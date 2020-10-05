@@ -294,9 +294,9 @@ client.on('message', msg => {
                 msg.reply('Uncum applied');
             }
         }
-        else if(msg.channel.id !== '715191707263565864' && ms.includes('lofi'))
+        else if(msg.channel.id == '715191707263565864' && ms.includes('lofi'))
         {
-            msg.channel.send('!fs');
+            msg.channel.send("!fs");
         }
         else if ((ms.includes('nig') || ms.includes('Ниг') || ms.includes('ניג') || ms.includes('chicken')
             || ms.includes('nugget') || ms.includes('biscuit') || ms.includes('ציקן') || ms.includes('נאגט')
