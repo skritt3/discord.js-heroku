@@ -296,7 +296,9 @@ client.on('message', msg => {
         }
         else if(msg.channel.id == '715191707263565864' && ms.includes('lofi'))
         {
-            msg.channel.send("!fs");
+            setTimeout(function () {
+                msg.channel.send("!fs");
+            }, 1000);
         }
         else if ((ms.includes('nig') || ms.includes('Ниг') || ms.includes('ניג') || ms.includes('chicken')
             || ms.includes('nugget') || ms.includes('biscuit') || ms.includes('ציקן') || ms.includes('נאגט')
