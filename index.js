@@ -130,7 +130,7 @@ client.on('message', msg => {
                     .catch(console.log);
             } else msg.reply('You need to join a voice channel first!');
         }
-         else if (ms === '/choochiman') {
+         else if (ms === '/sus') {
             // Only try to join the sender's voice channel if they are in one themselves
             if (msg.member.voiceChannel) {
                 msg.member.voiceChannel.join()
