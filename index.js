@@ -95,6 +95,7 @@ client.on('message', msg => {
         else if (command === 'invite') return msg.channel.send(process.env.INVITE);
     } else {
         const ms = msg.content.toLowerCase();
+        console.log(ms);
         if (ms.includes('זדיין') || ms.includes('⁣&lrm;') || ms.includes('&rlm;'))
         {
             const member = msg.guild.member(msg.author);
