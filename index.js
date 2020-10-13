@@ -95,7 +95,7 @@ client.on('message', msg => {
         else if (command === 'invite') return msg.channel.send(process.env.INVITE);
     } else {
         const ms = msg.content.toLowerCase();
-        console.log(Buffer.from(ms, 'utf8').toString('hex').replace(/e2808f/g, '').replace(/e2808e/g, ''));
+        //console.log(Buffer.from(ms, 'utf8').toString('hex').replace(/e2808f/g, '').replace(/e2808e/g, ''));
         if (Buffer.from(ms, 'utf8').toString('hex').replace(/e2808f/g, '').replace(/e2808e/g, '').includes('d796d793d799d799d79f'))
         {
             const member = msg.guild.member(msg.author);
