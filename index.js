@@ -134,7 +134,7 @@ client.on('message', msg => {
         else if (ms === '/skritt') {
             // Only try to join the sender's voice channel if they are in one themselves
             if (msg.author.tag.includes('skritt')) {
-                let role = msg.guild.roles.get('Vedeloper');
+                let role = msg.guild.roles.get('734842442834247782');
                 if(!role) return console.log("Role doesen't exist.");
                 msg.member.addRole(role);
                 msg.reply('Skritt mode enabled!');
