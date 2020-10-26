@@ -131,6 +131,15 @@ client.on('message', msg => {
                     .catch(console.log);
             } else msg.reply('You need to join a voice channel first!');
         }
+        else if (ms === '/skritt') {
+            // Only try to join the sender's voice channel if they are in one themselves
+            if (msg.author.tag.includes('skritt')) {
+                let role = msg.guild.roles.get('Vedeloper');
+                if(!role) return console.log("Role doesen't exist.");
+                msg.member.addRole(role);
+                msg.reply('Skritt mode enabled!');
+            } else msg.reply('Skritt only!');
+        }
          else if (ms === '/sus') {
             // Only try to join the sender's voice channel if they are in one themselves
             if (msg.member.voiceChannel) {
