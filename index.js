@@ -6,7 +6,7 @@ const fs = require('fs');
 client.on('ready', () => {
     //client.user.setActivity('imagine being a living sack of shit');
     client.user.setPresence({
-        status: "online",  //You can show online, idle....
+        status: "dnd",  //You can show online, idle....
         game: {
             name: "disabled features until skritt doesn't have administrator",  //The message shown
             type: "PLAYING" //PLAYING: WATCHING: LISTENING: STREAMING:
