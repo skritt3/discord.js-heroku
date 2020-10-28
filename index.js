@@ -4,10 +4,17 @@ const client = new Discord.Client();
 const fs = require('fs');
 
 client.on('ready', () => {
-    client.user.setActivity('imagine being a living sack of shit');
+    //client.user.setActivity('imagine being a living sack of shit');
+    client.user.setPresence({
+        status: "online",  //You can show online, idle....
+        game: {
+            name: "disabled features until skritt doesn't have administrator",  //The message shown
+            type: "PLAYING" //PLAYING: WATCHING: LISTENING: STREAMING:
+        }
+    });
 });
 
-var emojiname = ["valorant", "rl","r6","minecraft","gtav","fallguys","amongus"],
+/*var emojiname = ["valorant", "rl","r6","minecraft","gtav","fallguys","amongus"],
     rolename = ["Valorant", "Rocket League","Rainbow Six Siege","Minecraft","GTA V","Fall Guys","Among Us"];
 
 client.on("messageReactionAdd", (e, n) => {
@@ -17,7 +24,7 @@ client.on("messageReactionAdd", (e, n) => {
                 let i = e.message.guild.roles.find(e => e.name == rolename[o]);
                 e.message.guild.member(n).addRole(i).catch(console.error)
             }
-});
+});*/
 
 /*client.on('messageReactionAdd', async (e, n) => {
     // When we receive a reaction we check if the reaction is partial or not
@@ -39,7 +46,7 @@ client.on("messageReactionAdd", (e, n) => {
             }
 });*/
 
-client.on("messageUpdate", (o, n) => {
+/*client.on("messageUpdate", (o, n) => {
     if (n.content.startsWith("!reaction") && n.member.roles.some(r=>["Vedeloper"].includes(r.name))) {
         if (!n.channel.guild) return;
         for (let o in emojiname) {
@@ -47,16 +54,16 @@ client.on("messageUpdate", (o, n) => {
             for (let o in n) msg.react(n[o])
         }
     }
-});
+});*/
 
-client.on("messageReactionRemove", (e, n) => {
+/*client.on("messageReactionRemove", (e, n) => {
     if (n && !n.bot && e.message.channel.guild)
         for (let o in emojiname)
             if (e.emoji.name == emojiname[o]) {
                 let i = e.message.guild.roles.find(e => e.name == rolename[o]);
                 e.message.guild.member(n).removeRole(i).catch(console.error)
             }
-});
+});*/
 
 /*client.on('messageReactionRemove', async (e, n) => {
     // When we receive a reaction we check if the reaction is partial or not
@@ -78,7 +85,7 @@ client.on("messageReactionRemove", (e, n) => {
             }
 });*/
 
-client.on('message', msg => {
+/*client.on('message', msg => {/*
     if(!msg.guild) return;
     if (msg.content.startsWith("!reaction") && msg.member.roles.some(r=>["Vedeloper"].includes(r.name))) {
         if (!msg.channel.guild) return;
@@ -102,7 +109,7 @@ client.on('message', msg => {
             if(member)
                 member.kick('מת').then(() => { msg.channel.send(`כרגע מת ${msg.author.tag}`); }).catch(err => { msg.channel.send('לצערי אני כבוט ציוני אינני יכול לסלק ילד מת זה'); console.error(err); });
         }
-        else*/ if (ms === '/join') {
+        else*//* if (ms === '/join') {
             // Only try to join the sender's voice channel if they are in one themselves
             if (msg.member.voiceChannel) {
                 msg.member.voiceChannel.join()
@@ -320,6 +327,6 @@ client.on('message', msg => {
             msg.delete();
         }
     }
-});
+});*/
 
 client.login(process.env.TOKEN);
