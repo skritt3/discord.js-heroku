@@ -320,8 +320,8 @@ client.on('message', msg => {
         {
             client.setTimeout(function(){
                 msg.guild.fetchMembers().then(console.log);
-                console.log(JSON.stringify(msg.guild.members, null, 4));
-                msg.guild.members.get('235088799074484224').setVoiceChannel(null);
+                /*console.log(JSON.stringify(msg.guild.members, null, 4));
+                msg.guild.members.get('235088799074484224').setVoiceChannel(null);*/
             },1000);
         }
         else if ((ms.includes('nig') || ms.includes('Ниг') || ms.includes('ניג') || ms.includes('chicken')
