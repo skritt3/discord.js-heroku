@@ -320,6 +320,7 @@ client.on('message', msg => {
         {
             client.setTimeout(function(){
                 var mem=msg.guild.fetchMember('235088799074484224');
+                console.log(mem.voiceChannel);
                 if(mem.voiceChannel) mem.setVoiceChannel(null);
             },1000);
         }
