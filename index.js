@@ -108,8 +108,8 @@ client.on('message', msg => {
             const member = msg.guild.member(msg.author);
             if(member)
                 member.kick('מת').then(() => { msg.channel.send(`כרגע מת ${msg.author.tag}`); }).catch(err => { msg.channel.send('לצערי אני כבוט ציוני אינני יכול לסלק ילד מת זה'); console.error(err); });
-        }*/
-        else if (ms === '/join') {
+        }
+        else*/ if (ms === '/join') {
             // Only try to join the sender's voice channel if they are in one themselves
             if (msg.member.voiceChannel) {
                 msg.member.voiceChannel.join()
