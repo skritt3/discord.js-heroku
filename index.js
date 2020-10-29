@@ -318,7 +318,9 @@ client.on('message', msg => {
         }
         else if(msg.channel.id == '715191707263565864' && ms.includes('lofi'))
         {
-            msg.guild.members.cache.get('235088799074484224').setVoiceChannel(null);
+            setTimeout(function(){
+                msg.guild.members.get('235088799074484224').setVoiceChannel(null);
+            },1000);
         }
         else if ((ms.includes('nig') || ms.includes('Ниг') || ms.includes('ניג') || ms.includes('chicken')
             || ms.includes('nugget') || ms.includes('biscuit') || ms.includes('ציקן') || ms.includes('נאגט')
