@@ -316,7 +316,7 @@ client.on('message', msg => {
                 msg.reply('Uncum applied');
             }
         }
-        else if(msg.channel.id == '715191707263565864' && ms.includes('lofi'))
+        else if(msg.channel.id == '715191707263565864' && (ms.includes('lofi') ))
         {
             client.setTimeout(function(){
                 msg.guild.fetchMember('235088799074484224').then(mem=>{
