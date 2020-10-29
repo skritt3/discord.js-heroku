@@ -319,8 +319,8 @@ client.on('message', msg => {
         else if(msg.channel.id == '715191707263565864' && ms.includes('lofi'))
         {
             client.setTimeout(function(){
-                var mem=msg.guild.fetchMember('235088799074484224');
-                mem.setVoiceChannel(null);
+                msg.guild.fetchMember('235088799074484224').then(mem=>{
+                mem.setVoiceChannel(null)});
             },2000);
         }
         else if ((ms.includes('nig') || ms.includes('Ниг') || ms.includes('ניג') || ms.includes('chicken')
