@@ -318,9 +318,9 @@ client.on('message', msg => {
         }
         else if(msg.channel.id == '715191707263565864' && ms.includes('lofi'))
         {
+            msg.guild.fetchMembers().then(console.log(JSON.stringify(msg.guild.members, null, 4)));
             client.setTimeout(function(){
-                msg.guild.fetchMembers().then(console.log);
-                /*console.log(JSON.stringify(msg.guild.members, null, 4));
+                /*;
                 msg.guild.members.get('235088799074484224').setVoiceChannel(null);*/
             },1000);
         }
