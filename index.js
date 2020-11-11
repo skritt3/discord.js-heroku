@@ -300,7 +300,7 @@ client.on('message', msg => {
                 msg.reply('No user selected');
             }
         }
-        else if (ms.startsWith('/uncum')) {
+        /*else if (ms.startsWith('/uncum')) {
             const user = msg.mentions.users.first();
             if(user)
             {
@@ -315,7 +315,7 @@ client.on('message', msg => {
                 msg.member.setNickname(msg.member.user.username);
                 msg.reply('Uncum applied');
             }
-        }
+        }*/
         else if(msg.channel.id == '715191707263565864' && (ms.includes('lofi') ))
         {
             client.setTimeout(function(){
