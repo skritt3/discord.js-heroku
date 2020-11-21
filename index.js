@@ -248,7 +248,7 @@ client.on('message', msg => {
             const user = msg.mentions.users.first();
             if(user)
             {
-                if(msg.member.roles.some(r=>["Admins"].includes(r.name)))
+                if(msg.member.roles.some(role => role.name === 'Admins'))
                 {
                     const mm = msg.guild.member(user);
                     mm.setNickname('Cum');
@@ -260,12 +260,12 @@ client.on('message', msg => {
                 msg.reply('Cum applied');
             }
         }
-        /*else if (ms.startsWith('/kill')) {
+        else if (ms.startsWith('/kill')) {
             const user = msg.mentions.users.first();
             if(user)
             {
                 const mm = msg.guild.member(user);
-                if(msg.member.roles.some(r=>["kill"].includes(r.name)) && mm.voiceChannel)
+                if(msg.member.roles.some(role => role.name === 'kill') && mm.voiceChannel)
                 {
                     var channel=mm.voiceChannel;
                     var voiceChannel = client.channels.get('722428400429563904');
@@ -285,7 +285,7 @@ client.on('message', msg => {
             } else {
                 msg.reply('No user selected');
             }
-        }*/
+        }
         else if (ms.startsWith('/give-n-word-pass')) {
             const user = msg.mentions.users.first();
             if(user)
