@@ -265,22 +265,25 @@ client.on('message', msg => {
             if(user)
             {
                 const mm = msg.guild.member(user);
-                if(msg.member.roles.some(role => role.name === 'kill') && mm.voiceChannel)
+                if(message.member.roles.find(r => r.name === "kill"))
                 {
-                    var channel=mm.voiceChannel;
-                    var voiceChannel = client.channels.get('722428400429563904');
-                    mm.setVoiceChannel(voiceChannel);
-                    msg.reply('<@'+mm.user.id+'> fucking dead now');
-                    voiceChannel.join()
-                        .then(connection => { // Conn// ection is an instance of VoiceConnection
-                            const stream = fs.createReadStream('./Kill.mp4');
-                            const voice = connection.playStream(stream);
-                            voice.on("end", () => {
-                                connection.channel.leave();
-                                mm.setVoiceChannel(channel);
+                    if(mm.voiceChannel)
+                    {
+                        var channel=mm.voiceChannel;
+                        var voiceChannel = client.channels.get('722428400429563904');
+                        mm.setVoiceChannel(voiceChannel);
+                        msg.reply('<@'+mm.user.id+'> fucking dead now');
+                        voiceChannel.join()
+                            .then(connection => { // Conn// ection is an instance of VoiceConnection
+                                const stream = fs.createReadStream('./Kill.mp4');
+                                const voice = connection.playStream(stream);
+                                voice.on("end", () => {
+                                    connection.channel.leave();
+                                    mm.setVoiceChannel(channel);
+                                })
                             })
-                        })
-                        .catch(console.log);
+                            .catch(console.log);
+                   } else msg.reply('User not in vc');
                 } else msg.reply('No permissions');
             } else {
                 msg.reply('No user selected');
