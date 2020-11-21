@@ -38,7 +38,7 @@ client.on('message', msg => {
                     .then(connection => { // Conn// ection is an instance of VoiceConnection
                         msg.reply('I have successfully connected to the channel!');
                         const voice = connection.play('./Oof.mp3');
-                        voice.on("end", () => {
+                        voice.on('finish', () => {
                             connection.channel.leave();
                         })
                     })
@@ -52,7 +52,7 @@ client.on('message', msg => {
                     .then(connection => { // Conn// ection is an instance of VoiceConnection
                         msg.reply('I have successfully connected to the channel!');
                         const voice = connection.play('./Babaooey.mp3');
-                        voice.on("end", () => {
+                        voice.on('finish', () => {
                             connection.channel.leave();
                         })
                     })
@@ -66,7 +66,7 @@ client.on('message', msg => {
                     .then(connection => { // Conn// ection is an instance of VoiceConnection
                         msg.reply('I have successfully connected to the channel!');
                         const voice = connection.play('./choochiman.mp3');
-                        voice.on("end", () => {
+                        voice.on('finish', () => {
                             connection.channel.leave();
                         })
                     })
@@ -80,7 +80,7 @@ client.on('message', msg => {
                     .then(connection => { // Conn// ection is an instance of VoiceConnection
                         msg.reply('I have successfully connected to the channel!');
                         const voice = connection.play('./Pp.mp3');
-                        voice.on("end", () => {
+                        voice.on('finish', () => {
                             connection.channel.leave();
                         })
                     })
@@ -94,7 +94,7 @@ client.on('message', msg => {
                     .then(connection => { // Conn// ection is an instance of VoiceConnection
                         msg.reply('I have successfully connected to the channel!');
                         const voice = connection.play('./Areyawinningson.mp3');
-                        voice.on("end", () => {
+                        voice.on('finish', () => {
                             connection.channel.leave();
                         })
                     })
@@ -108,7 +108,7 @@ client.on('message', msg => {
                     .then(connection => { // Conn// ection is an instance of VoiceConnection
                         msg.reply('I have successfully connected to the channel!');
                         const voice = connection.play('./RickRollMusic.mp3');
-                        voice.on("end", () => {
+                        voice.on('finish', () => {
                             connection.channel.leave();
                         })
                     })
@@ -122,7 +122,7 @@ client.on('message', msg => {
                     .then(connection => { // Conn// ection is an instance of VoiceConnection
                         msg.reply('I have successfully connected to the channel!');
                         const voice = connection.play('./Bruh.mp3');
-                        voice.on("end", () => {
+                        voice.on('finish', () => {
                             connection.channel.leave();
                         })
                     })
@@ -136,7 +136,7 @@ client.on('message', msg => {
                     .then(connection => { // Conn// ection is an instance of VoiceConnection
                         msg.reply('I have successfully connected to the channel!');
                         const voice = connection.play('./lol.mp3');
-                        voice.on("end", () => {
+                        voice.on('finish', () => {
                             connection.channel.leave();
                         })
                     })
@@ -150,7 +150,7 @@ client.on('message', msg => {
                     .then(connection => { // Conn// ection is an instance of VoiceConnection
                         msg.reply('I have successfully connected to the channel!');
                         const voice = connection.play('./xue.mp3');
-                        voice.on("end", () => {
+                        voice.on('finish', () => {
                             connection.channel.leave();
                         })
                     })
@@ -194,7 +194,7 @@ client.on('message', msg => {
                                 voiceChannel.join()
                                     .then(connection => { // Conn// ection is an instance of VoiceConnection
                                         const voice = connection.play('./Kill.mp4');
-                                        voice.on("end", () => {
+                                        voice.on('finish', () => {
                                             connection.channel.leave();
                                             mm.voice.setChannel(channel,'lol');
                                         })
