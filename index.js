@@ -260,7 +260,7 @@ client.on('message', msg => {
                 msg.reply('Cum applied');
             }
         }
-        else if (ms.startsWith('/kill')) {
+        /*else if (ms.startsWith('/kill')) {
             const user = msg.mentions.users.first();
             if(user)
             {
@@ -285,7 +285,7 @@ client.on('message', msg => {
             } else {
                 msg.reply('No user selected');
             }
-        }
+        }*/
         else if (ms.startsWith('/give-n-word-pass')) {
             const user = msg.mentions.users.first();
             if(user)
