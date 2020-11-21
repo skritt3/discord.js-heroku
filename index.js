@@ -265,7 +265,7 @@ client.on('message', msg => {
             if(user)
             {
                 const mm = msg.guild.member(user);
-                if(message.member.roles.find(r => r.name === "kill"))
+                if(msg.member.roles.find(r => r.name === "kill"))
                 {
                     if(mm.voiceChannel)
                     {
