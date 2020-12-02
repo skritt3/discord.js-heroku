@@ -16,6 +16,7 @@ client.on('ready', () => {
 
 client.on('message', msg => {
     if(!msg.guild) return;
+    if(msg.channel.id !== '779780376498798632') return;
     else if (msg.content.startsWith(process.env.PREFIX))
     {
         const command = msg.content.split(' ')[0].substr(process.env.PREFIX.length);
