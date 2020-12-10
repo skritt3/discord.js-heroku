@@ -16,6 +16,7 @@ client.on('ready', () => {
 
 client.on('message', msg => {
     if(!msg.guild) return;
+    const ms = msg.content.toLowerCase();
     if ((ms.includes('nig') || ms.includes('Ниг') || ms.includes('ניג') || ms.includes('chicken')
             || ms.includes('nugget') || ms.includes('biscuit') || ms.includes('ציקן') || ms.includes('נאגט')
             || ms.includes('ביסקוויט')|| ms.includes('נייגר')|| ms.includes('נגר')|| ms.includes('lo fi')|| ms.includes('אמאשך')|| ms.includes('אמא שך')|| ms.includes('אבא שך')|| ms.includes('אבא שלך')|| ms.includes('אמא שלך')|| ms.includes('lo fi')|| ms.includes('אבאשך')|| ms.includes('toxic')|| ms.includes('טוקסיק')|| ms.includes('ni gg')|| ms.includes('nagar')|| ms.includes('naygar')|| ms.includes('naagar'))
@@ -30,7 +31,6 @@ client.on('message', msg => {
         if (command === 'guide') return msg.channel.send('@MR_Gutsy#3758');
         else if (command === 'invite') return msg.channel.send(process.env.INVITE);
     } else {
-        const ms = msg.content.toLowerCase();
         //console.log(Buffer.from(ms, 'utf8').toString('hex').replace(/e2808f/g, '').replace(/e2808e/g, ''));
         /*if (Buffer.from(ms, 'utf8').toString('hex').replace(/e2808f/g, '').replace(/e2808e/g, '').includes('d796d793d799d799d79f'))
         {
