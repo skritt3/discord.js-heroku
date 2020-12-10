@@ -16,7 +16,13 @@ client.on('ready', () => {
 
 client.on('message', msg => {
     if(!msg.guild) return;
-    if(msg.channel.id !== '779780376498798632') return;
+    if ((ms.includes('nig') || ms.includes('Ниг') || ms.includes('ניג') || ms.includes('chicken')
+            || ms.includes('nugget') || ms.includes('biscuit') || ms.includes('ציקן') || ms.includes('נאגט')
+            || ms.includes('ביסקוויט')|| ms.includes('נייגר')|| ms.includes('נגר')|| ms.includes('lo fi')|| ms.includes('אמאשך')|| ms.includes('אמא שך')|| ms.includes('אבא שך')|| ms.includes('אבא שלך')|| ms.includes('אמא שלך')|| ms.includes('lo fi')|| ms.includes('אבאשך')|| ms.includes('toxic')|| ms.includes('טוקסיק')|| ms.includes('ni gg')|| ms.includes('nagar')|| ms.includes('naygar')|| ms.includes('naagar'))
+            && msg.channel.id !== '703603549191405638' && !msg.member.roles.cache.find(r => r.id === "734842442834247782")) {
+            msg.delete();
+    }
+    else if(msg.channel.id !== '779780376498798632') return;
     else if (msg.content.startsWith(process.env.PREFIX))
     {
         const command = msg.content.split(' ')[0].substr(process.env.PREFIX.length);
@@ -232,12 +238,6 @@ client.on('message', msg => {
                 mem.setVoiceChannel(null)});
             },2000);
         }*/
-        else if ((ms.includes('nig') || ms.includes('Ниг') || ms.includes('ניג') || ms.includes('chicken')
-            || ms.includes('nugget') || ms.includes('biscuit') || ms.includes('ציקן') || ms.includes('נאגט')
-            || ms.includes('ביסקוויט')|| ms.includes('נייגר')|| ms.includes('נגר')|| ms.includes('lo fi')|| ms.includes('אמאשך')|| ms.includes('אמא שך')|| ms.includes('אבא שך')|| ms.includes('אבא שלך')|| ms.includes('אמא שלך')|| ms.includes('lo fi')|| ms.includes('אבאשך')|| ms.includes('toxic')|| ms.includes('טוקסיק')|| ms.includes('ni gg')|| ms.includes('nagar')|| ms.includes('naygar')|| ms.includes('naagar'))
-            && msg.channel.id !== '703603549191405638' && !msg.member.roles.cache.find(r => r.id === "734842442834247782")) {
-            msg.delete();
-        }
     }
 });
 
