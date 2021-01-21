@@ -66,6 +66,20 @@ client.on('message', msg => {
                     .catch(console.log);
             } else msg.reply('You need to join a voice channel first!');
         }
+        else if (ms === '/butterdog') {
+            // Only try to join the sender's voice channel if they are in one themselves
+            if (msg.member.voice.channel) {
+                msg.member.voice.channel.join()
+                    .then(connection => { // Conn// ection is an instance of VoiceConnection
+                        msg.reply('I have successfully connected to the channel!');
+                        const voice = connection.play('./butterdog.ogg');
+                        voice.on('finish', () => {
+                            connection.channel.leave();
+                        })
+                    })
+                    .catch(console.log);
+            } else msg.reply('You need to join a voice channel first!');
+        }
         else if (ms === '/sus') {
             // Only try to join the sender's voice channel if they are in one themselves
             if (msg.member.voice.channel) {
