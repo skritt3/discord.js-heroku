@@ -23,8 +23,10 @@
   "homepage": "https://github.com/synicalsyntax/discord.js-heroku#readme",
   "dependencies": {
     "discord.js": "^12.4.1",
+    "node-cron": "^3.0.0",
     "node-gyp": "^6.1.0",
-    "ytdl-core": "^1.0.9",
-    "node-opus": "^0.3.3"
+    "node-opus": "^0.3.3",
+    "request": "^2.88.2",
+    "ytdl-core": "^1.0.9"
   }
 }
