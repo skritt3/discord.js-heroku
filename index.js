@@ -37,7 +37,7 @@ client.on('message', msg => {
             && msg.channel.id !== '703603549191405638' && !msg.member.roles.cache.find(r => r.id === "734842442834247782")) {
             msg.delete();
     }
-    else if(msg.channel.id !== '779780376498798632') return;
+    else if(msg.channel.id !== '779780376498798632' || msg.channel.id !== '841996869890080779') return;
     else if (msg.content.startsWith(process.env.PREFIX))
     {
         const command = msg.content.split(' ')[0].substr(process.env.PREFIX.length);
