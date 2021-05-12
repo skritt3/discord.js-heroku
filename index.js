@@ -371,6 +371,7 @@ var task=cron.schedule('*/2 * * * * *', () => {
             if(body.length>1)
             for (var i=10; i>=0; i++)
             {
+                console.log(11-i+': '+body[i]['alertDate']+' '+body[i]['data']);
                 var dt=new Date(body[i]['alertDate']);
                 if(dt > ld && body[i]['data'].indexOf('אשדוד') !=-1)
                 {
