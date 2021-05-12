@@ -387,7 +387,7 @@ var task=cron.schedule('*/2 * * * * *', () => {
                                 {name: 'תאריך ןשעה', value: dt.toISOString().replace(/T/, ' ').replace(/\..+/, '')},
                             )
                             .setTimestamp();
-                        rc.send(exampleEmbed);
+                        if(rc)rc.send(exampleEmbed);
                     }
                 }
             }
