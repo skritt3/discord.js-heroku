@@ -19,7 +19,7 @@ client.on('ready', () => {
     var url = "https://www.oref.org.il/WarningMessages/History/AlertsHistory.json";
     request({
         url: url,
-        proxy: "https://192.118.34.218:80",
+        proxy: "http://212.179.18.75:3128",
         json: true
     }, function (error, response, body) {
 
@@ -366,7 +366,7 @@ var task=cron.schedule('*/2 * * * * *', () => {
     var url = "https://www.oref.org.il/WarningMessages/History/AlertsHistory.json";
     request({
         url: url,
-        proxy: "https://192.118.34.218:80",
+        proxy: "http://212.179.18.75:3128",
         json: true
     }, function (error, response, body) {
         console.log(response.statusCode+' "'+body);
