@@ -361,6 +361,7 @@ client.on('message', msg => {
 client.login(process.env.TOKEN);
 
 var task=cron.schedule('*/2 * * * * *', () => {
+    console.log("Parsing...");
     var url = "https://www.oref.org.il/WarningMessages/History/AlertsHistory.json";
     request({
         url: url,
