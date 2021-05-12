@@ -376,15 +376,15 @@ var task=cron.schedule('*/2 * * * * *', () => {
                     var dt = new Date(((body[i]['date'])*1000)+10800000);
                     console.log(body.length - i + ': ' + dt.toISOString().replace(/T/, ' ').replace(/\..+/, '') + ' ' + body[i]['area']);
                     if (dt > ld /*&& body[i]['area'].indexOf('אשדוד') != -1*/) {
-                        ld = dt;
+                        if(i==body.length-1) ld = dt;
                         const exampleEmbed = new Discord.MessageEmbed()
                             .setColor('#ff0000')
-                            .setTitle(body[i]['title'])
-                            .setDescription('<@842008317220225054>')
+                            .setTitle('צבע אדום')
+                            .setDescription('<@&842008317220225054>')
                             .setThumbnail('https://www.oref.org.il/Images/Logo_pakar.png')
                             .addFields(
                                 {name: 'מיקום', value: body[i]['area']},
-                                {name: 'תאריך ןשעה', value: dt.toISOString().replace(/T/, ' ').replace(/\..+/, '')},
+                                {name: 'תאריך ושעה', value: dt.toISOString().replace(/T/, ' ').replace(/\..+/, '')},
                             )
                             .setTimestamp();
                         if(rc)rc.send(exampleEmbed);
