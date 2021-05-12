@@ -369,10 +369,10 @@ var task=cron.schedule('*/2 * * * * *', () => {
     }, function (error, response, body) {
         //console.log(response.statusCode+' "'+body);
         if (!error && response.statusCode === 200) {
-            for (var i=10; i>=0; i++)
+            for (var i=body.length; i>=0; i++)
             {
                 var dt=new Date(body[i]['date']);
-                console.log(11-i+': '+dt.toISOString().replace(/T/, ' ').replace(/\..+/, '')+' '+body[i]['area']);
+                console.log(body.length+1-i+': '+dt.toISOString().replace(/T/, ' ').replace(/\..+/, '')+' '+body[i]['area']);
                 if(dt > ld && body[i]['area'].indexOf('אשדוד') !=-1)
                 {
                     ld=dt;
