@@ -375,7 +375,7 @@ var task=cron.schedule('*/2 * * * * *', () => {
                 if(body[i]!==undefined) {
                     var dt = new Date(((body[i]['date'])*1000)+10800000);
                     console.log(body.length - i + ': ' + dt.toISOString().replace(/T/, ' ').replace(/\..+/, '') + ' ' + body[i]['area']);
-                    if (dt > ld && body[i]['area'].indexOf('אשדוד') != -1) {
+                    if (dt > ld /*&& body[i]['area'].indexOf('אשדוד') != -1*/) {
                         ld = dt;
                         const exampleEmbed = new Discord.MessageEmbed()
                             .setColor('#ff0000')
