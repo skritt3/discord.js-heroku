@@ -361,7 +361,7 @@ client.on('message', msg => {
 
 client.login(process.env.TOKEN);
 
-var task=cron.schedule('*/2 * * * * *', () => {
+var task=cron.schedule('* * * * * *', () => {
     //console.log("Parsing...");
     var url = "https://www.tzevaadom.co.il/historyjson.php";
     request({
