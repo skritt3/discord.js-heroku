@@ -367,9 +367,8 @@ var task=cron.schedule('*/2 * * * * *', () => {
         url: url,
         json: true
     }, function (error, response, body) {
-
+        console.log(response.statusCode+' "'+body);
         if (!error && response.statusCode === 200) {
-            if(body.length>1)
             for (var i=10; i>=0; i++)
             {
                 console.log(11-i+': '+body[i]['alertDate']+' '+body[i]['data']);
