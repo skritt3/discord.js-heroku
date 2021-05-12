@@ -16,17 +16,16 @@ client.on('ready', () => {
             type: "PLAYING" //PLAYING: WATCHING: LISTENING: STREAMING:
         }
     });*/
-   /* var url = "https://www.oref.org.il/WarningMessages/History/AlertsHistory.json";
+   var url = "https://www.tzevaadom.co.il/historyjson.php";
     request({
         url: url,
-        proxy: "http://212.179.18.75:3128",
         json: true
     }, function (error, response, body) {
 
         if (!error && response.statusCode === 200) {
-            ld=new Date(body[0]['alertDate']);
+            ld=new Date(body[0]['date']);
         }
-    });*/
+    });
 });
 
 client.on('message', msg => {
@@ -361,21 +360,20 @@ client.on('message', msg => {
 
 client.login(process.env.TOKEN);
 
-/*var task=cron.schedule('*/2 * * * * *', () => {
-    /*console.log("Parsing...");
-    var url = "https://www.oref.org.il/WarningMessages/History/AlertsHistory.json";
+var task=cron.schedule('*/2 * * * * *', () => {
+    console.log("Parsing...");
+    var url = "https://www.tzevaadom.co.il/historyjson.php";
     request({
         url: url,
-        proxy: "http://212.179.18.75:3128",
         json: true
     }, function (error, response, body) {
         console.log(response.statusCode+' "'+body);
         if (!error && response.statusCode === 200) {
             for (var i=10; i>=0; i++)
             {
-                console.log(11-i+': '+body[i]['alertDate']+' '+body[i]['data']);
-                var dt=new Date(body[i]['alertDate']);
-                if(dt > ld && body[i]['data'].indexOf('אשדוד') !=-1)
+                var dt=new Date(body[i]['date']);
+                console.log(11-i+': '+dt.toISOString().replace(/T/, ' ').replace(/\..+/, '')+' '+body[i]['area']);
+                if(dt > new ld && body[i]['area'].indexOf('אשדוד') !=-1)
                 {
                     ld=dt;
                     const exampleEmbed = new Discord.MessageEmbed()
@@ -384,8 +382,8 @@ client.login(process.env.TOKEN);
                         .setDescription('<@842008317220225054>')
                         .setThumbnail('https://www.oref.org.il/Images/Logo_pakar.png')
                         .addFields(
-                            { name: 'מיקום', value: body[i]['data'] },
-                            { name: 'תאריך ןשעה', value: dt },
+                            { name: 'מיקום', value: body[i]['area'] },
+                            { name: 'תאריך ןשעה', value: dt.toISOString().replace(/T/, ' ').replace(/\..+/, '') },
                         )
                         .setTimestamp();
                     rc.send(exampleEmbed);
@@ -394,4 +392,4 @@ client.login(process.env.TOKEN);
         }
     });
 },false);
-task.start();*/
+task.start();
