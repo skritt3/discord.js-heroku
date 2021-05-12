@@ -2,6 +2,10 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 const fs = require('fs');
+var cron = require('node-cron');
+var request = require("request");
+var ld;
+var rc;
 
 client.on('ready', () => {
     client.user.setActivity('imagine being a living sack of shit');
@@ -12,6 +16,16 @@ client.on('ready', () => {
             type: "PLAYING" //PLAYING: WATCHING: LISTENING: STREAMING:
         }
     });*/
+    var url = "https://www.oref.org.il/WarningMessages/History/AlertsHistory.json";
+    request({
+        url: url,
+        json: true
+    }, function (error, response, body) {
+
+        if (!error && response.statusCode === 200) {
+            ld=new Date(body[0]['alertDate']);
+        }
+    });
 });
 
 client.on('message', msg => {
@@ -262,6 +276,10 @@ client.on('message', msg => {
                     .catch(console.log);
             } else msg.reply('You need to join a voice channel first!');
         }
+        else if (ms === '/ra') {
+           rc=msg.channel;
+           msg.reply('Red Alert channel set!');
+        }
         else if (ms === '/leave') {
             const member = msg.guild.member(client.user);
             member.voice.connection.disconnect();
@@ -341,3 +359,36 @@ client.on('message', msg => {
 
 
 client.login(process.env.TOKEN);
+
+var task=cron.schedule('* * * * * *', () => {
+    var url = "https://www.oref.org.il/WarningMessages/History/AlertsHistory.json";
+    request({
+        url: url,
+        json: true
+    }, function (error, response, body) {
+
+        if (!error && response.statusCode === 200) {
+            if(body.length>1)
+            for (var i=10; i>=0; i++)
+            {
+                var dt=new Date(body[i]['alertDate']);
+                if(dt > ld && body[i]['data'].indexOf('אשדוד') !=-1)
+                {
+                    ld=dt;
+                    const exampleEmbed = new Discord.MessageEmbed()
+                        .setColor('#ff0000')
+                        .setTitle(body[i]['title'])
+                        .setDescription('<@842008317220225054>')
+                        .setThumbnail('https://www.oref.org.il/Images/Logo_pakar.png')
+                        .addFields(
+                            { name: 'מיקום', value: body[i]['data'] },
+                            { name: 'תאריך ןשעה', value: dt },
+                        )
+                        .setTimestamp();
+                    rc.send(exampleEmbed);
+                }
+            }
+        }
+    });
+},false);
+task.start();
