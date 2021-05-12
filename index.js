@@ -16,7 +16,7 @@ client.on('ready', () => {
             type: "PLAYING" //PLAYING: WATCHING: LISTENING: STREAMING:
         }
     });*/
-    var url = "https://www.oref.org.il/WarningMessages/History/AlertsHistory.json";
+   /* var url = "https://www.oref.org.il/WarningMessages/History/AlertsHistory.json";
     request({
         url: url,
         proxy: "http://212.179.18.75:3128",
@@ -26,7 +26,7 @@ client.on('ready', () => {
         if (!error && response.statusCode === 200) {
             ld=new Date(body[0]['alertDate']);
         }
-    });
+    });*/
 });
 
 client.on('message', msg => {
@@ -361,8 +361,8 @@ client.on('message', msg => {
 
 client.login(process.env.TOKEN);
 
-var task=cron.schedule('*/2 * * * * *', () => {
-    console.log("Parsing...");
+/*var task=cron.schedule('*/2 * * * * *', () => {
+    /*console.log("Parsing...");
     var url = "https://www.oref.org.il/WarningMessages/History/AlertsHistory.json";
     request({
         url: url,
@@ -394,4 +394,4 @@ var task=cron.schedule('*/2 * * * * *', () => {
         }
     });
 },false);
-task.start();
+task.start();*/
