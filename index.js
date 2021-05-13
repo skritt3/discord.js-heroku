@@ -23,7 +23,7 @@ client.on('ready', () => {
     }, function (error, response, body) {
 
         if (!error && response.statusCode === 200) {
-            if(body.length>0)
+            if(body)
             {
                 ld=new Date(((body[0]['date'])*1000)+10800000);
                 console.log(ld);
@@ -372,7 +372,7 @@ var task=cron.schedule('* * * * * *', () => {
         json: true
     }, function (error, response, body) {
         //console.log(response.statusCode+' "'+body);
-        if (!error && response.statusCode === 200) {
+        if (!error && response.statusCode === 200 && body) {
             for (var i=body.length-1; i>=0; i--)
             {
                 if(body[i]!==undefined) {
