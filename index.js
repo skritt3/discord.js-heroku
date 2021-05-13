@@ -390,7 +390,7 @@ var task=cron.schedule('* * * * * *', () => {
                                 {name: 'תאריך ושעה', value: dt.toISOString().replace(/T/, ' ').replace(/\..+/, '')},
                             )
                             .setTimestamp();
-                        if(rc)rc.send(exampleEmbed);
+                        if(rc)rc.send(exampleEmbed).then(m => { m.crosspost(); });
                     }
                 }
             }
