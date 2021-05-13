@@ -22,7 +22,7 @@
   },
   "homepage": "https://github.com/synicalsyntax/discord.js-heroku#readme",
   "dependencies": {
-    "discord.js": "^12.4.1",
+    "discord.js": "^12.5.3",
     "node-cron": "^3.0.0",
     "node-gyp": "^6.1.0",
     "node-opus": "^0.3.3",
