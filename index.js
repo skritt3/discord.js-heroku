@@ -4,7 +4,7 @@ const client = new Discord.Client();
 const fs = require('fs');
 var cron = require('node-cron');
 var request = require("request");
-var ld;
+var ld=new Date();
 var rc;
 
 client.on('ready', () => {
@@ -23,8 +23,11 @@ client.on('ready', () => {
     }, function (error, response, body) {
 
         if (!error && response.statusCode === 200) {
-            ld=new Date(((body[0]['date'])*1000)+10800000);
-            console.log(ld);
+            if(body.length>0)
+            {
+                ld=new Date(((body[0]['date'])*1000)+10800000);
+                console.log(ld);
+            }
         }
     });
 });
@@ -369,7 +372,7 @@ var task=cron.schedule('* * * * * *', () => {
         json: true
     }, function (error, response, body) {
         //console.log(response.statusCode+' "'+body);
-        if (!error && response.statusCode === 200 && ld!=null) {
+        if (!error && response.statusCode === 200) {
             for (var i=body.length-1; i>=0; i--)
             {
                 if(body[i]!==undefined) {
